@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.20.1"
+  },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^20.0.0",
     "@ckeditor/ckeditor5-react": "^2.1.0",
