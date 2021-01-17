@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect } from "./views/Admin/VacationApplication/Components/node_modules/react-router-dom";
 import MainLayout from "./templates/MainLayout/MainLayout";
 import NormalLayout from "./templates/NormalLayout/NormalLayout";
 import {

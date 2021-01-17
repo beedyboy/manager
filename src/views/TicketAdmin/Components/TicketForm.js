@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, Fragment } from "react";
-import Select from "react-select";
+import Select from "../../Admin/VacationApplication/Components/node_modules/react-select";
 import dataHero from "data-hero";
 import {
   Button,

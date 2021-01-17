@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import{ Button, Card, CardBody, FormGroup,  Label, Modal, ModalBody, ModalHeader, ModalFooter, Row, Col } from 'reactstrap';  
-import Select from 'react-select'; 
+import Select from '../../Admin/VacationApplication/Components/node_modules/react-select'; 
 
 const Status = ({data, sending, toggleStatus, toggleClose, open, close, handleClose}) => { 
     const [status, setStatus] = useState('');

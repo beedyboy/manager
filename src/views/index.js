@@ -3,7 +3,7 @@ export { default as Asset } from "./Asset";
 export { default as Dashboard } from "./Dashboard";
 export { default as LeaveApplication } from "./LeaveApplication";
 export { default as LeaveAppDetails } from "./LeaveAppDetails";
-export { default as LeaveAppManager } from "./Admin/LeaveApplication";
+export { default as LeaveAppManager } from "./Admin/VacationApplication";
 export { default as NotFound } from "./NotFound";
 export { default as Maintenance } from "./Maintenance";
 export { default as Onboarding } from "./Onboarding";

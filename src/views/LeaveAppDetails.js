@@ -4,7 +4,7 @@ import { Badge, Card, CardBody, Button, Table, Row, Col } from "reactstrap";
 import { observer } from "mobx-react";
 import Utility from "../services/UtilityService";
 import LeaveStore from "../stores/LeaveStore";
-import LeaveStatus from "./Admin/LeaveApplication/Components/Status";
+import LeaveStatus from "./Admin/VacationApplication/Components/Status";
 
 let canModify = Utility.canAccess("leave", "add");
 const LeaveAppDetails = (props) => {

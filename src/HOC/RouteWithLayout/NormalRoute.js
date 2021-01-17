@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';  
+import { Route } from '../../views/Admin/VacationApplication/Components/node_modules/react-router-dom';  
 
 const NormalRoute = props => {
   const { layout: Layout, component: Component, ...rest } = props;

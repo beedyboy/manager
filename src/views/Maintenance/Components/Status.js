@@ -12,7 +12,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import Select from "react-select";
+import Select from "../../Admin/VacationApplication/Components/node_modules/react-select";
 const Status = ({
   data,
   sending,

@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import DataTable from "react-data-table-component";
 import { Row, Col, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link } from "../../Admin/VacationApplication/Components/node_modules/react-router-dom";
 
 const AssetList = ({
   data,

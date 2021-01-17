@@ -7,7 +7,7 @@ import Company from "./Company/Company";
 import Department from "./Department/Department";
 import Director from "./Director/Director";
 import Document from "./Document/Document";
-import Leave from "./Leave/Leave";
+import Leave from "./Vacation/Vacation";
 import SubCategory from "./SubCategory/SubCategory";
 
 const Admin = () => {

@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import UserStore from "../../../stores/UserStore";
-import { Link } from "react-router-dom";
+import { Link } from "../../Admin/VacationApplication/Components/node_modules/react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import { observer } from "mobx-react";
 import Utility from "../../../services/UtilityService";

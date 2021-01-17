@@ -1,12 +1,12 @@
 import React, { useContext, useState, Fragment } from "react";
 import { observer } from "mobx-react";
 import { Card, CardBody, CardHeader, Button, Row, Col } from "reactstrap"; 
-import LeaveForm from "./Components/LeaveForm";
+import VacationForm from "./Components/VacationForm";
 import LeaveList from "./Components/LeaveList";
 import Utility from "../../../services/UtilityService";
 import LeaveStore from "../../../stores/LeaveStore";
 
-const Leave = () => {
+const Vacation = () => {
   const store = useContext(LeaveStore);
   const { info: leaves, removeLeave } = store;
   const [mode, setMode] = useState("");
@@ -61,7 +61,7 @@ const Leave = () => {
               )}
             </Col>
           </Row>
-          <LeaveForm
+          <VacationForm
             mode={mode}
             open={modal}
             handleClose={handleClose}
@@ -73,4 +73,4 @@ const Leave = () => {
   );
 };
 
-export default observer(Leave);
+export default observer(Vacation);

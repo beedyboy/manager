@@ -4,7 +4,7 @@ import LeaveStore from '../../../../stores/LeaveStore';
 import{ Button, Card, CardBody, FormGroup, FormFeedback, Input, Label, Modal, ModalBody, ModalHeader, ModalFooter, Row, Col } from 'reactstrap';  
 import { observer } from 'mobx-react';
 
-const LeaveForm = ({mode, open, handleClose, initial_data}) => {
+const VacationForm = ({mode, open, handleClose, initial_data}) => {
   const store = useContext(LeaveStore);
   const { createLeave, updateLeave, close, sending, exist, confirmLeaveType } = store; 
   const [hasError, setHasError]  = useState(false);
@@ -150,4 +150,4 @@ const LeaveForm = ({mode, open, handleClose, initial_data}) => {
     )
 }
 
-export default observer(LeaveForm)
+export default observer(VacationForm)

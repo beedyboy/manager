@@ -1,6 +1,6 @@
 import React from 'react'
 import { Jumbotron } from 'reactstrap';
-import { Link } from 'react-router-dom'
+import { Link } from '../../Admin/VacationApplication/Components/node_modules/react-router-dom'
 
 const TicketHome = () => {
     return (
