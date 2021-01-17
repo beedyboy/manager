@@ -59,7 +59,7 @@ const Admin = () => {
                   color={activeTab === "leave" ? "primary" : "dark"}
                   onClick={(e) => setActiveTab("leave")}
                 >
-                  Leave
+                  Vacation
                 </Button>
                 <Button
                   color={activeTab === "marketing" ? "primary" : "dark"}
