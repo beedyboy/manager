@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState, useEffect } from 'react'
 import{ Button, Card, CardBody, FormGroup, FormFeedback, Input, Label, Modal, ModalBody, ModalHeader, ModalFooter, Row, Col } from 'reactstrap';  
-import Select from '../../views/Admin/VacationApplication/Components/node_modules/react-select'; 
+import Select from 'react-select'; 
 import dataHero from 'data-hero'; 
 import { observer } from "mobx-react";
 import DepartmentStore from '../../stores/DepartmentStore'; 

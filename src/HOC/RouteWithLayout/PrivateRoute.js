@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from '../../views/Admin/VacationApplication/Components/node_modules/react-router-dom'; 
+import { Route, Redirect } from 'react-router-dom'; 
 import Utility from '../../services/UtilityService'; 
 
 const PrivateRoute = props => {
