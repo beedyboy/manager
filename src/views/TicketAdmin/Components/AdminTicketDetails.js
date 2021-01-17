@@ -2,7 +2,7 @@ import React, { useEffect, useContext, Fragment, useState } from "react";
 import TicketStore from "../../../stores/TicketStore";
 import ReactHtmlParser from "react-html-parser";
 import { Badge, Card, CardBody, Button, Row, Col } from "reactstrap";
-import { Link } from "../../Admin/VacationApplication/Components/node_modules/react-router-dom";
+import { Link } from "react-router-dom";
 import PerfectScrollBar from "react-perfect-scrollbar";
 import { observer } from "mobx-react";
 import Conversation from "../../../components/Conversation/Conversation";

@@ -17,7 +17,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import Select from "../../Admin/VacationApplication/Components/node_modules/react-select";
+import Select from "react-select";
 import { observer } from "mobx-react";
 import CategoryStore from "../../../stores/CategoryStore";
 import SubCategoryStore from "../../../stores/SubCategoryStore";

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import DataTable, {createTheme} from "react-data-table-component";
 import { Row, Col, Button } from "reactstrap";
-import { Link } from "../../Admin/VacationApplication/Components/node_modules/react-router-dom";
+import { Link } from "react-router-dom";
 createTheme('solarized', {
   text: {
     primary: '#268bd2',

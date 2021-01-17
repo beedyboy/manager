@@ -1,6 +1,6 @@
 import React, { Fragment, memo } from 'react';
 import { Badge } from 'reactstrap';
-import { Link } from '../../Admin/VacationApplication/Components/node_modules/react-router-dom';
+import { Link } from 'react-router-dom';
 
 const TicketSummary = memo(({row}) => {
     return (
