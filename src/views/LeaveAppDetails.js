@@ -34,14 +34,14 @@ const LeaveAppDetails = (props) => {
           <Card className="mt-2">
             <CardBody>
               <h6 className="m-b-20 p-b-5 b-b-default f-w-600">
-                Leave Details
+                Vacation Details
               </h6>
               <Table responsive>
                <tbody>
                <tr>
                   <td>
                     {" "}
-                    <p className="m-b-10 f-w-600">Employe Name</p>
+                    <p className="m-b-10 f-w-600">Employee Name</p>
                   </td>
                   <td>
                     {" "}
@@ -54,7 +54,7 @@ const LeaveAppDetails = (props) => {
                 </tr>
                 <tr>
                   <td>
-                    <p className="m-b-10 f-w-600">Leave Type</p>
+                    <p className="m-b-10 f-w-600">Vacation Type</p>
                   </td>
                   <td>
                     {" "}
@@ -86,13 +86,13 @@ const LeaveAppDetails = (props) => {
                 </tr>
                 <tr>
                   <td>
-                    <p className="m-b-10 f-w-600">Employe Leave Description</p>
+                    <p className="m-b-10 f-w-600">Employee Vacation Description</p>
                   </td>
                   <td>{ReactHtmlParser(application.description)}</td>
                 </tr>
                 <tr>
                   <td>
-                  <p className="m-b-10 f-w-600">leave Status :</p>
+                  <p className="m-b-10 f-w-600">Vacation Status :</p>
                   </td>
                   <td colSpan="5">
                     {" "}
@@ -154,14 +154,14 @@ const LeaveAppDetails = (props) => {
               <Card className="mt-2">
                 <CardBody>
                   <h6 className="m-b-20 p-b-5 b-b-default f-w-600">
-                    Leave Information
+                  Vacation Information
                    
                   </h6>
 
                   <Row>
                     
                     <Col md="12">
-                      <p className="m-b-10 f-w-600">Leave Type</p>
+                      <p className="m-b-10 f-w-600">Vacation Type</p>
                       <h6 className="text-muted f-w-400">
                         {" "}
                         {application && application.leave_type}

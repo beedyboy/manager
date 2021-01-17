@@ -8,7 +8,7 @@ const PendingApp = ({
   
   const columns = [
     {
-      name: "Leave Type",
+      name: "Vacation Type",
       selector: "leave_type",
       sortable: true,
     },

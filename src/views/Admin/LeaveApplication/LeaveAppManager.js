@@ -35,7 +35,7 @@ const LeaveAppManager = () => {
     <Fragment>
       <Card className="mt-2">
         <CardHeader>
-          <h5>Leave Application Management</h5>
+          <h5>Vacation Application Management</h5>
         </CardHeader>
         <CardBody>
           <Row>

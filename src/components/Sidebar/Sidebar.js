@@ -113,11 +113,11 @@ const Sidebar = () => {
         </li>
 
         <li>
-          <Link to="/leaves">
+          <Link to="/vacations">
             <span className="icon">
               <i className="fa fa-hand-o-right" aria-hidden="true"></i>
             </span>
-            <span className="title">My Leaves</span>
+            <span className="title">My Vacations</span>
           </Link>
         </li>
 
@@ -201,7 +201,7 @@ const Sidebar = () => {
             </span>
             <ul className={`submenu ${superMenu.leave ? " show" : ""}`}>
               <li>
-                <Link to="/leave-applications">Leave Applications </Link>
+                <Link to="/vacation-applications">Vacation Applications </Link>
               </li>
               {totalStaff ? (
                 <li>

@@ -28,7 +28,7 @@ const Leave = () => {
         <CardHeader>
           <Row>
             <Col md="5" sm="12">
-              <h5>Leave Management</h5>
+              <h5>Vacation Management</h5>
             </Col>
             <Col md={{ size: 3, offset: 4 }} sm="12">
               {canAdd ? (
@@ -37,7 +37,7 @@ const Leave = () => {
                   className="float-right"
                   onClick={createLeave}
                 >
-                  Add Leave
+                  Add Vacation
                 </Button>
               ) : null}
             </Col>

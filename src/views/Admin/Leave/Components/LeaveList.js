@@ -55,7 +55,7 @@ const LeaveList = ({
               size="sm"
               color="danger"
               onClick={(e) => {
-                if (window.confirm("Delete this category?")) {
+                if (window.confirm("Delete this type?")) {
                   deleteData(e, row.id);
                 }
               }}
@@ -81,7 +81,7 @@ const LeaveList = ({
       <Row>
         <Col md="12">
           <DataTable
-            title="Leave List"
+            title="Vacation List"
             columns={columns}
             data={data}
             pagination={true}

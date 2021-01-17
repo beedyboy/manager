@@ -8,7 +8,7 @@ const ApprovedList = ({
 }) => { 
   const columns = [
     {
-      name: "Leave Type",
+      name: "Vacation Type",
       selector: "leave_type",
       sortable: true,
     },
@@ -30,7 +30,7 @@ const ApprovedList = ({
            
                
               <Link
-                to={`/leave-applications/${row.id}/admin`}
+                to={`/vacation-applications/${row.id}/admin`}
                 className="btn btn-info btn-sm"
               >
                 View

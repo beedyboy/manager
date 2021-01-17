@@ -12,7 +12,7 @@ const LeaveApplicationList = ({
 }) => { 
   const columns = [
     {
-      name: "Leave Type",
+      name: "Vacation Type",
       selector: "leave_type",
       sortable: true,
     },
@@ -49,7 +49,7 @@ const LeaveApplicationList = ({
                 </Fragment>
              ): ''}
               <Link
-                to={`/leave-applications/${row.id}/staff`}
+                to={`/vacation-applications/${row.id}/staff`}
                 className="btn btn-info btn-sm"
               >
                 View

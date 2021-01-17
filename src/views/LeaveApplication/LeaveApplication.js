@@ -29,7 +29,7 @@ const LeaveApplication = () => {
           {/* <h5>Leave Application Management</h5> */}
           <Row>
            <Col md="5" sm="12">
-             <h5>My Leave Applications</h5> 
+             <h5>My Vacation Applications</h5> 
            </Col>
            <Col md={{ size: 3, offset: 4 }} sm="12"> 
         <Button color="secondary" className='float-right' onClick={newLeaveRequest}
@@ -37,7 +37,7 @@ const LeaveApplication = () => {
            </Col>
            </Row>
         </CardHeader>
-        <CardBody>
+        <CardBody> 
           <Row>
             <Col md="12" sm="12" className="mt-2"> 
                 <LeaveApplicationList 

@@ -2,8 +2,7 @@ import React, { useEffect, useState, useContext, Fragment } from "react";
 import dataHero from "data-hero";
 import LeaveStore from "../../../stores/LeaveStore";
 import {
-  Button,
-  ButtonGroup,
+  Button, 
   Card,
   CardBody,
   FormGroup,
@@ -22,7 +21,7 @@ const schema = {
   leave_type_id: {
     isEmpty: false,
     min: 1,
-    message: "Leave type is required",
+    message: "Vacation type is required",
   },
   leave_start_date: {
     isEmpty: false,
@@ -38,7 +37,7 @@ const schema = {
 const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
   const leaveStore = useContext(LeaveStore); 
   const { applyForLeave, updateLeave, sending, info, close, toggleClose } = leaveStore; 
-  const [title, setTitle] = useState("Add Leave");  
+  const [title, setTitle] = useState("Add Vacation");  
   const [formState, setFormState] = useState({
     values: {
       id: "",
@@ -52,7 +51,7 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
   });
   useEffect(() => {
     if (mode === "Edit") {
-      setTitle("Edit Leave");
+      setTitle("Edit Vacation");
       let shouldSetData = typeof initial_data !== "undefined" ? true : false;
       if (shouldSetData) {
         const data = initial_data; 
@@ -168,7 +167,7 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
 
                   <Col md="12">
                     <FormGroup>
-                      <Label for="leave_type_id">Leave Type</Label>
+                      <Label for="leave_type_id">Vacation Type</Label>
                       <Input
                         type="select"
                         value={formState.values.leave_type_id || ""}

@@ -8,13 +8,13 @@ const LeaveForm = ({mode, open, handleClose, initial_data}) => {
   const store = useContext(LeaveStore);
   const { createLeave, updateLeave, close, sending, exist, confirmLeaveType } = store; 
   const [hasError, setHasError]  = useState(false);
-  const [title, setTitle]  = useState('Add Leave');
+  const [title, setTitle]  = useState('Add Vacation');
     const [formState, setFormState] = useState({ 
         id: '', leave_type: '', allowed_days: '',  description: ''
       });
   useEffect(() => {
     if(mode === "Edit") {
-        setTitle('Edit Leave');
+        setTitle('Edit Vacation');
       let shouldSetData =  typeof initial_data !== 'undefined' ? true : false; 
     if (shouldSetData) {  
     const data = initial_data; 
@@ -46,7 +46,7 @@ const LeaveForm = ({mode, open, handleClose, initial_data}) => {
     setFormState(formState => ({
       ...formState,
       isValid: !error,
-      errors: error?  'Leave type field must be a minimum of 2 characters': null
+      errors: error?  'Vacation type field must be a minimum of 2 characters': null
     })); 
   }, [formState.leave_type]);  
   const handleChange = event => { 
@@ -82,7 +82,7 @@ const LeaveForm = ({mode, open, handleClose, initial_data}) => {
           <Row>
               <Col md="12"> 
                 <FormGroup>
-                  <Label for="leave_type">Leave Type</Label>
+                  <Label for="leave_type">Vacation Type</Label>
                   <Input
                   type="text" 
                   value={formState.leave_type || ''}
@@ -93,8 +93,8 @@ const LeaveForm = ({mode, open, handleClose, initial_data}) => {
                   invalid={hasError || exist}
                   />
                    <FormFeedback>  
-                        { hasError ? 'Leave type field must be a minimum of 2 characters' : null } 
-                        <p> { exist ? 'Leave type already exists' : null}</p>
+                        { hasError ? 'Vacation type field must be a minimum of 2 characters' : null } 
+                        <p> { exist ? 'Vacation type already exists' : null}</p>
                     </FormFeedback>
                  </FormGroup>  
               </Col>
