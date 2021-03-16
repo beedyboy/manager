@@ -10,11 +10,14 @@ class UserStore {
   }
   isAuthenticated = false;
   error = null;
+  sending = false;
+  onboarding = false;
   loading = false;
   emailExist = false;
   close = false;
-  closeACL = false;
+  closeACL = false; 
   closeLogin = false;
+  action = null;
   users = [];
   profile = [];
   profiles = [];
@@ -172,6 +175,21 @@ class UserStore {
       }
     });
   };
+
+  onBoardStaff = (data) => {
+    this.onboarding = true;
+    backend.post("onboarding", data).then((res) => {
+      this.onboarding = false;
+      if (res.data.status === 200) {
+        this.fetchUsers();
+        this.action = 'ONBOARDED';
+        Beedy("success", res.data.message);
+      } else {
+        this.action = "error";
+        Beedy("error", res.data.message);
+      }
+    });
+  };
   get info() {
     return Object.keys(this.users || {}).map((key) => ({
       ...this.users[key],
@@ -204,9 +222,11 @@ decorate(UserStore, {
   profile: observable,
   profiles: observable,
   sending: observable,
+  onboarding: observable,
   emailExist: observable,
   closeLogin: observable,
-  closeACL: observable,
+  action: observable, 
+  closeACL: observable, 
   toggleClose: action,
   fetchUsers: action,
   getProfile: action,
@@ -218,6 +238,7 @@ decorate(UserStore, {
   login: action,
   logOut: action,
   loginSuccessful: action,
+  onBoardStaff: action,
   assignRole: action,
   createLogin: action,
   toggleCloseLogin: action,

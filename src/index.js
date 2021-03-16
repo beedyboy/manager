@@ -8,11 +8,15 @@ import 'aos/dist/aos.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Responder from './services/Beedy';
+import { ChakraProvider } from "@chakra-ui/react"
 
 ReactDOM.render( 
    <Fragment>
+       <ChakraProvider>
+
       <Responder />
       <App />
+       </ChakraProvider>
    </Fragment>,
   document.getElementById('root')
 );

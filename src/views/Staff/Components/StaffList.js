@@ -10,14 +10,14 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-
-// const data = [{ id: 1, title: 'Conan the Barbarian', year: '1982' } ];
+ 
 const StaffList = ({
   data,
   setMode,
   setLogin,
   setId,
   setACL,
+  setBoard,
   removeData,
   rowData,
   toggle,
@@ -97,6 +97,9 @@ const StaffList = ({
                   <DropdownItem size="sm" onClick={(e) => assignACL(e, row)}>
                     <i className="fa fa-key"></i> Roles
                   </DropdownItem>
+                  <DropdownItem size="sm" onClick={(e) => onboard(e, row)}>
+                    <i className="fa fa-key"></i> Onboard
+                  </DropdownItem>
                   {row.can_login === "No" ? (
                     <DropdownItem
                       size="sm"
@@ -131,6 +134,12 @@ const StaffList = ({
     rowData(row);
     setId(row.id);
     setACL();
+  };
+  const onboard = (e, row) => {
+    e.persist();
+    rowData(row);
+    setId(row.id);
+    setBoard();
   };
   const deleteData = (e, id) => {
     removeData(id);
