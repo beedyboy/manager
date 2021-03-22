@@ -10,6 +10,9 @@ class UserStore {
   }
   isAuthenticated = false;
   error = null;
+  message = "";
+  action = "";
+  errMessage = "";
   sending = false;
   onboarding = false;
   loading = false;
@@ -135,6 +138,20 @@ class UserStore {
       }
     });
   };
+
+  signStory = (data) => {
+    this.sending = true;
+    backend.post("user/update/signature", data).then((res) => {
+      this.sending = false;
+      if (res.data.status === 200) {
+        this.action = "signed"
+        this.getProfile();
+        this.message  = res.data.message
+      } else {
+        this.errMessage  = res.data.message
+      }
+    });
+  };
   login = (Admin) => {
     this.sending = true;
     this.error = null;
@@ -216,12 +233,15 @@ class UserStore {
 }
 decorate(UserStore, {
   isAuthenticated: observable,
+  action: observable,
   error: observable,
   loading: observable,
   users: observable,
   profile: observable,
   profiles: observable,
   sending: observable,
+  message: observable,
+  errMessage: observable,
   onboarding: observable,
   emailExist: observable,
   closeLogin: observable,
@@ -229,6 +249,7 @@ decorate(UserStore, {
   closeACL: observable, 
   toggleClose: action,
   fetchUsers: action,
+  signStory: action,
   getProfile: action,
   getProfileById: action,
   updateProfile: action,

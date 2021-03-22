@@ -11,3 +11,9 @@ export const  backend = axios.create({
     }
   }
 }); 
+
+backend.interceptors.request.use(function (config) {
+  var token = Utility.get('staff_token');
+  config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});

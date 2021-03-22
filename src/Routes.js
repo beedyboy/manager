@@ -25,7 +25,7 @@ import {
 import { PrivateRoute, NormalRoute } from "./HOC";
 import AssetDetails from "./views/Asset/Components/AssetDetails";
 import AdminTicketDetails from "./views/TicketAdmin/Components/AdminTicketDetails";
-import StaffDetails from "./views/Staff/Components/StaffDetails";
+import StaffDetails from "./views/Staff/Components/StaffDetails"; 
 
 const Routes = () => {
   return (
@@ -85,6 +85,7 @@ const Routes = () => {
         layout={MainLayout}
         path="/staff/:id/view"
       />
+      
       <PrivateRoute
         component={ProductView}
         exact
