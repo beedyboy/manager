@@ -29,15 +29,14 @@ const Profile = () => {
         <CardHeader>
           <h5>{page === "profile" ? "Profile Management" : "CEO STRORY"}</h5>
 
-          {page === "profile" ? (
-            profiles && profiles.signed === "Yes" ? null : (
+          {page === "profile" ? ( 
               <Button
                 onClick={(e) => handlePage("story")}
                 className="text-info"
               >
                 Sign
               </Button>
-            )
+           
           ) : (
             <Button
               onClick={(e) => handlePage("profile")}
@@ -77,6 +76,7 @@ const Profile = () => {
               <Col md="12" sm="12" className="mt-2">
                 <CEO_STORY
                   id={profiles && profiles.id}
+                  signed={profiles && profiles.signed}
                   pdf={STORY} 
                 />
               </Col>

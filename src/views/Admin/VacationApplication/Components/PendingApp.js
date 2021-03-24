@@ -2,11 +2,13 @@ import React, { Fragment } from "react";
 import DataTable from "react-data-table-component";
 import { Row, Col } from "reactstrap";
 
-const PendingApp = ({
-  data,  
-}) => {
-  
+const PendingApp = ({ data }) => {
   const columns = [
+    {
+      name: "Name",
+      sortable: true,
+      cell: (row) => <Fragment> {row.firstname + " " + row.lastname}</Fragment>,
+    },
     {
       name: "Vacation Type",
       selector: "leave_type",
@@ -21,7 +23,7 @@ const PendingApp = ({
       name: "End date",
       selector: "leave_end_date",
       sortable: true,
-    }, 
+    },
     {
       name: "Actions",
       sortable: true,
@@ -46,25 +48,21 @@ const PendingApp = ({
           ) : (
             ""
           )} */}
-          
-          
-        
         </div>
       ),
     },
   ];
-   
+
   return (
     <Fragment>
       <Row>
-         
         <Col md="12">
           <DataTable
             title="Pending Applications"
             columns={columns}
             data={data}
             pagination={true}
-            theme="solarized" 
+            theme="solarized"
           />
         </Col>
       </Row>

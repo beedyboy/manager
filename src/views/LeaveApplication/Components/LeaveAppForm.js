@@ -16,6 +16,7 @@ import {
   Row,
   Col,
 } from "reactstrap"; 
+import moment from "moment";
 import { observer } from "mobx-react";  
 const schema = { 
   leave_type_id: {
@@ -35,6 +36,7 @@ const schema = {
 };
 
 const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
+  const dateFormat = "YYYY/MM/DD";
   const leaveStore = useContext(LeaveStore); 
   const { applyForLeave, updateLeave, sending, info, close, toggleClose } = leaveStore; 
   const [title, setTitle] = useState("Add Vacation");  
@@ -200,7 +202,13 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
                       <Label for="leave_start_date">Start Date</Label>
                       <Input
                         type="date"
-                        value={formState.values.leave_start_date || ""}
+                        // value={formState.values.leave_start_date || ""}
+                        locale="fr"
+                        defaultValue={
+                          formState.values.start_date
+                            ? moment(formState.values.leave_start_date, dateFormat)
+                            : moment()
+                        }
                         name="leave_start_date"
                         id="leave_start_date"
                         onChange={handleChange}
@@ -213,9 +221,15 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
                   >
                     <FormGroup>
                       <Label for="leave_end_date">End Date</Label>
-                      <Input
+                      <input
                         type="date"
-                        value={formState.values.leave_end_date || ""}
+                        // value={formState.values.leave_end_date || ""} 
+                         locale="fr"
+                        defaultValue={
+                          formState.values.start_date
+                            ? moment(formState.values.leave_end_date, dateFormat)
+                            : moment()
+                        }
                         name="leave_end_date"
                         id="leave_end_date"
                         onChange={handleChange}

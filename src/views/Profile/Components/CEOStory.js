@@ -29,7 +29,7 @@ const CEO_STORY = (props) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1); //setting 1 to show fisrt page
 
-  const { pdf, id } = props;
+  const { pdf, id, signed } = props;
   const [formState, setFormState] = useState({
     values: {
       id: id,
@@ -130,45 +130,50 @@ const CEO_STORY = (props) => {
               </Button>
             </div>
           </Col>
-          <Col md="6">
-            <FormGroup>
-              <Label for="signature">Sign Here</Label>
-              <Input
-                type="text"
-                className="form-control"
-                placeholder="Enter your name"
-                name="signature"
-                value={formState.values.signature}
-                onChange={handleChange}
-                invalid={hasError("signature")}
-              />
-              <FormFeedback>
-                {hasError("signature")
-                  ? formState.errors.signature &&
-                    formState.errors.signature.message
-                  : null}
-              </FormFeedback>
-            </FormGroup>
-          </Col>
+          {signed && signed === "Yes" ? null : (
+            <>
+              {" "}
+              <Col md="6">
+                <FormGroup>
+                  <Label for="signature">Sign Here</Label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your name"
+                    name="signature"
+                    value={formState.values.signature}
+                    onChange={handleChange}
+                    invalid={hasError("signature")}
+                  />
+                  <FormFeedback>
+                    {hasError("signature")
+                      ? formState.errors.signature &&
+                        formState.errors.signature.message
+                      : null}
+                  </FormFeedback>
+                </FormGroup>
+              </Col>
+              <div className="mt-5 text-right">
+                <Button
+                  color="primary"
+                  className="profile-button"
+                  type="button"
+                  disabled={!formState.isValid || sending}
+                  onClick={handleSubmit}
+                >
+                  {sending ? (
+                    <span>
+                      {" "}
+                      Saving Changes <i className="fa fa-spinner"></i>
+                    </span>
+                  ) : (
+                    "Save"
+                  )}
+                </Button>
+              </div>
+            </>
+          )}
         </Row>
-        <div className="mt-5 text-right">
-          <Button
-            color="primary"
-            className="profile-button"
-            type="button"
-            disabled={!formState.isValid || sending}
-            onClick={handleSubmit}
-          >
-            {sending ? (
-              <span>
-                {" "}
-                Saving Changes <i className="fa fa-spinner"></i>
-              </span>
-            ) : (
-              "Save"
-            )}
-          </Button>
-        </div>
       </Container>
     </>
   );

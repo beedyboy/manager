@@ -376,7 +376,7 @@ const RoleForm = ({ handleClose, open, id, initial_data }) => {
 
 
                   <Col md="12" className="border mb-1">
-                    <Label className="border-bottom bg-info">Leave:</Label>{" "}
+                    <Label className="border-bottom bg-info">Vacation:</Label>{" "}
                     <br />
                     <FormGroup check inline>
                       <Label>

@@ -8,6 +8,17 @@ const ApprovedList = ({
 }) => { 
   const columns = [
     {
+      name: "Name",
+      sortable: true,
+      cell: (row) => (
+        <Fragment>
+          <Link to={`/staff/${row.id}/view`} className="text-info">
+            {row.firstname + " " + row.lastname}
+          </Link>
+        </Fragment>
+      ),
+    },
+    {
       name: "Vacation Type",
       selector: "leave_type",
       sortable: true,
