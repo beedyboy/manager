@@ -1,20 +1,15 @@
-import React, { Fragment } from "react";
+import React, {Fragment} from 'react'; 
 import DataTable from "react-data-table-component";
-import { Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Row, Col } from "reactstrap"; 
 
-const AllAppList = ({
-  data,  
-}) => { 
+const VacationHistory = ({data}) => { 
   const columns = [
     {
       name: "Name",
       sortable: true,
       cell: (row) => (
         <Fragment>
-          <Link to={`/staff/${row.id}/view`} className="text-info">
-            {row.firstname + " " + row.lastname}
-          </Link>
+             {row.firstname + " " + row.lastname} 
         </Fragment>
       ),
     },
@@ -38,31 +33,16 @@ const AllAppList = ({
       selector: "days",
       sortable: true,
     }, 
-    {
-      name: "Actions",
-      sortable: true,
-      cell: (row) => (
-        <div>
-             
-              <Link
-                to={`/vacation-applications/${row.id}/${row.staff_id}/${row.leave_type_id}/admin`}
-                className="btn btn-info btn-sm"
-              >
-                View
-              </Link>{" "} 
-          
-            
-        </div>
-      ),
-    },
+    
   ];
- 
-  return (
-    <Fragment>
+
+
+    return (
+        <Fragment>
       <Row> 
         <Col md="12">
           <DataTable
-            title="Application List"
+            title="Application History"
             columns={columns}
             data={data}
             pagination={true}
@@ -71,7 +51,8 @@ const AllAppList = ({
         </Col>
       </Row>
     </Fragment>
-  );
+    );
 };
+ 
 
-export default AllAppList;
+export default VacationHistory;

@@ -44,8 +44,8 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
     values: {
       id: "",
       leave_type_id: "",  
-      leave_start_date: "",
-      leave_end_date: "",
+      leave_start_date: moment().format(dateFormat),
+      leave_end_date: moment().format(dateFormat),
       description: "",
     },
     touched: {},
@@ -207,7 +207,7 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
                         defaultValue={
                           formState.values.start_date
                             ? moment(formState.values.leave_start_date, dateFormat)
-                            : moment()
+                            : moment().format(dateFormat)
                         }
                         name="leave_start_date"
                         id="leave_start_date"
@@ -228,7 +228,7 @@ const LeaveAppForm = ({ mode, open, handleClose, initial_data }) => {
                         defaultValue={
                           formState.values.start_date
                             ? moment(formState.values.leave_end_date, dateFormat)
-                            : moment()
+                            : moment().format(dateFormat)
                         }
                         name="leave_end_date"
                         id="leave_end_date"

@@ -53,7 +53,7 @@ const Routes = () => {
         component={LeaveAppDetailsView}
         exact
         layout={MainLayout}
-        path="/vacation-applications/:id/:user"
+        path="/vacation-applications/:id/:user/:leave/:type"
       />
       <PrivateRoute
         component={LeaveAppManagerView}

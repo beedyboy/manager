@@ -15,6 +15,7 @@ class LeaveStore {
   sending = false;
   leave = [];
   application = [];
+  history = [];
   applications = [];
   myApplications = [];
 
@@ -151,6 +152,28 @@ class LeaveStore {
       console.error(e);
     }
   };
+  getApplicationStat = (user, leave) => {
+    try {
+      this.loading = true;
+      backend
+        .get(`leave/application/stats/${user}/${leave}`)
+        .then((res) => {
+          this.loading = false;
+          if (res.data.status === 500) {
+            Utility.logout();
+          } else if (res.data.status === 200) {
+            this.history = res.data.data;
+          }
+        })
+        .catch((err) => {
+          console.log("getApplicationStat", err.code);
+          console.log("getApplicationStat", err.message);
+          console.log("getApplicationStat", err.stack);
+        });
+    } catch (e) {
+      console.error(e);
+    }
+  };
   toggleStatus = (data) => {
     try {
       this.sending = true;
@@ -208,6 +231,7 @@ decorate(LeaveStore, {
   leave: observable,
   application: observable,
   applications: observable,
+  history: observable,
   myApplications: observable,
   createLeave: action,
   updateLeave: action,
@@ -215,6 +239,7 @@ decorate(LeaveStore, {
   fetchApplications: action,
   getMyApplications: action,
   getApplicationById: action,
+  getApplicationStat: action,
   applyForLeave: action,
   toggleClose: action,
 });
