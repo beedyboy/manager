@@ -38,16 +38,12 @@ const ApprovedList = ({
       sortable: true,
       cell: (row) => (
         <div>
-           
-               
-              <Link
-                to={`/vacation-applications/${row.id}/admin`}
-                className="btn btn-info btn-sm"
-              >
-                View
-              </Link>{" "} 
-          
-            
+           <Link
+            to={`/vacation-applications/${row.id}/${row.staff_id}/${row.leave_type_id}/admin`}
+            className="btn btn-info btn-sm"
+          >
+            View
+          </Link>{" "}
         </div>
       ),
     },

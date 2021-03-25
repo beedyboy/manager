@@ -49,8 +49,8 @@ const LeaveApplicationList = ({
                 </Fragment>
              ): ''}
               <Link
-                to={`/vacation-applications/${row.id}/staff`}
-                className="btn btn-info btn-sm"
+               to={`/vacation-applications/${row.id}/${row.staff_id}/${row.leave_type_id}/staff`}
+               className="btn btn-info btn-sm"
               >
                 View
               </Link>{" "}

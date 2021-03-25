@@ -3,9 +3,7 @@ import DataTable from "react-data-table-component";
 import { Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const AllAppList = ({
-  data,  
-}) => { 
+const AllAppList = ({ data }) => {
   const columns = [
     {
       name: "Name",
@@ -32,41 +30,38 @@ const AllAppList = ({
       name: "End date",
       selector: "leave_end_date",
       sortable: true,
-    }, 
+    },
     {
       name: "Days",
       selector: "days",
       sortable: true,
-    }, 
+    },
     {
       name: "Actions",
       sortable: true,
       cell: (row) => (
         <div>
-             
-              <Link
-                to={`/vacation-applications/${row.id}/${row.staff_id}/${row.leave_type_id}/admin`}
-                className="btn btn-info btn-sm"
-              >
-                View
-              </Link>{" "} 
-          
-            
+          <Link
+            to={`/vacation-applications/${row.id}/${row.staff_id}/${row.leave_type_id}/admin`}
+            className="btn btn-info btn-sm"
+          >
+            View
+          </Link>{" "}
         </div>
       ),
     },
   ];
- 
+
   return (
     <Fragment>
-      <Row> 
+      <Row>
         <Col md="12">
           <DataTable
             title="Application List"
             columns={columns}
             data={data}
             pagination={true}
-            theme="solarized" 
+            theme="solarized"
           />
         </Col>
       </Row>
