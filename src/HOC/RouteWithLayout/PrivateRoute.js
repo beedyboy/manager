@@ -16,7 +16,7 @@ return (
       </Layout>
        :
 
-       <Redirect to={{ pathname: '/sign-in', state: { from: props.location } }} />
+       <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     
     )}
   />

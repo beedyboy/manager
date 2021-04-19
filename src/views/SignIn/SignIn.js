@@ -18,6 +18,7 @@ import brand from "../../assets/img/brand.png";
 import office from "../../assets/img/office.png";
 import "./style.css";
 import UserStore from "../../stores/UserStore";
+import { Link } from "react-router-dom";
 
 const schema = {
   email: {
@@ -189,9 +190,9 @@ const SignIn = (props) => {
                     </FormGroup>
                   </Col> */}
                         <Col xs="12" lg="12">
-                          <a href="/forgot" className="ml-auto mb-0 text-sm">
+                          <Link to="/reset-password" className="ml-auto mb-0 text-sm">
                             Forgot Password?
-                          </a>
+                          </Link>
                         </Col>
                       </Row>
                     </Col>

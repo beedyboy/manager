@@ -1,7 +1,8 @@
 import React from "react";
-import { Switch, Redirect } from "react-router-dom";
+import { HashRouter as Router, Switch, Redirect } from "react-router-dom";
 import MainLayout from "./templates/MainLayout/MainLayout";
 import NormalLayout from "./templates/NormalLayout/NormalLayout";
+import { createBrowserHistory } from "history";
 import {
   Admin as AdminView,
   Asset as AssetView,
@@ -17,6 +18,7 @@ import {
   ProductDetails as ProductDetailsView,
   Profile as ProfileView,
   Report as ReportView,
+  ResetRequest as ResetRequestView,
   SignIn as SignInView,
   Staff as StaffView,
   Ticket as TicketView,
@@ -28,7 +30,9 @@ import AdminTicketDetails from "./views/TicketAdmin/Components/AdminTicketDetail
 import StaffDetails from "./views/Staff/Components/StaffDetails"; 
 
 const Routes = () => {
+  const browserHistory = createBrowserHistory();
   return (
+     <Router history={browserHistory}>
     <Switch>
       <Redirect exact from="/" to="/dashboard" />
       <PrivateRoute
@@ -134,7 +138,13 @@ const Routes = () => {
         component={SignInView}
         exact
         layout={NormalLayout}
-        path="/sign-in"
+        path="/login"
+      />
+      <NormalRoute
+        component={ResetRequestView}
+        exact
+        layout={NormalLayout}
+        path="/reset-password"
       />
       <NormalRoute
         component={NotFoundView}
@@ -144,6 +154,7 @@ const Routes = () => {
       />
       <Redirect to="/not-found" />
     </Switch>
+ </Router>
   );
 };
 export default Routes;

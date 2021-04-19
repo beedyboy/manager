@@ -11,6 +11,7 @@ import AlertTemplate from 'react-alert-template-basic';
 import Responder from "./services/Beedy";
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./templates/theme";
 //optional configuration for react alert
 const options = {
   position: positions.TOP_RIGHT,
@@ -21,10 +22,11 @@ const options = {
 
 ReactDOM.render(
   <Fragment>
-    <ChakraProvider>
-      <Responder />
+    <ChakraProvider theme={theme}>
       <AlertProvider template={AlertTemplate} {...options}>
-        <App />
+      
+      <Responder /> 
+       <App />
       </AlertProvider>
     </ChakraProvider>
   </Fragment>,
