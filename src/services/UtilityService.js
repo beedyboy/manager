@@ -15,7 +15,10 @@ const Utility = {
     localStorage.removeItem("staff_token");
     localStorage.removeItem("name");
     localStorage.removeItem("acl");
-    window.location.href = "/login";
+    // window.location.hash ? window.location.hash : window.location.pathname
+    // window.location.href = "/login";
+    // window.location.hash  = 'login';
+    window.location.replace('/')
   },
   canAccess: (key, priviledge) => {
     let access = Utility.get("acl");

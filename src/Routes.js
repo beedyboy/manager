@@ -1,8 +1,7 @@
 import React from "react";
 import { HashRouter as Router, Switch, Redirect } from "react-router-dom";
 import MainLayout from "./templates/MainLayout/MainLayout";
-import NormalLayout from "./templates/NormalLayout/NormalLayout";
-import { createBrowserHistory } from "history";
+import NormalLayout from "./templates/NormalLayout/NormalLayout"; 
 import {
   Admin as AdminView,
   Asset as AssetView,
@@ -29,10 +28,9 @@ import AssetDetails from "./views/Asset/Components/AssetDetails";
 import AdminTicketDetails from "./views/TicketAdmin/Components/AdminTicketDetails";
 import StaffDetails from "./views/Staff/Components/StaffDetails"; 
 
-const Routes = () => {
-  const browserHistory = createBrowserHistory();
+const Routes = () => { 
   return (
-     <Router history={browserHistory}>
+     <Router>
     <Switch>
       <Redirect exact from="/" to="/dashboard" />
       <PrivateRoute
