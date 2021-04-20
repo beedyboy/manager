@@ -14,6 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import AuthStore from "../../stores/AuthStore";
+import { useAlert } from "react-alert";
 import { observer } from "mobx-react";
 const schema = {
   email: {
@@ -23,8 +24,15 @@ const schema = {
   },
 };
 const RequestRecovery = () => {
+  const alert = useAlert();
   const store = useContext(AuthStore);
-  const { sending, requestInstruction } = store;
+  const {
+    sending,
+    message,
+    resetProperty,
+    requestInstruction,
+    requestSent,
+  } = store;
   const [formState, setFormState] = useState({
     isValid: false,
     values: {
@@ -36,13 +44,22 @@ const RequestRecovery = () => {
 
   useEffect(() => {
     const errors = dataHero.validate(schema, formState.values);
-
     setFormState((formState) => ({
       ...formState,
       isValid: errors.email.error ? false : true,
       errors: errors || {},
     }));
   }, [formState.values]);
+
+  useEffect(() => {
+    if (requestSent) {
+      alert.success(message);
+    }
+    return () => {
+      resetProperty("requestSent", false);
+      resetProperty("message", "");
+    };
+  }, [requestSent]);
 
   const handleChange = (event) => {
     event.persist();
@@ -59,66 +76,64 @@ const RequestRecovery = () => {
       },
     }));
   };
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    requestInstruction(formState.values);
+  };
   const hasError = (field) =>
     formState.touched[field] && formState.errors[field].error;
 
   return (
     <>
-     <Flex h="100vh" w="100vw" justify="center" align="center">
+      <Flex h="100vh" w="100vw" justify="center" align="center">
         <Box align="center">
-     <Center w="50vw" h="100vh">
-     <Flex 
-        direction="column"
-        w="40vw" 
-      >
-       <Box>
-       <Heading as="h4">Reset password</Heading>
-       </Box>
-        <Box mt="2">
-        <Text>
-          Enter the email associated with your account and <br />
-           we'll send an email
-          with instructions to reset your password.
-        </Text>
-        </Box>
-        <Box as="form" mt="2" onSubmit={handleSubmit}>
-          <Stack spacing={4} marginBottom="1rem">
-            <FormControl isRequired isInvalid={hasError("email")}>
-              <FormLabel htmlFor="email">Email Address</FormLabel>
+          <Center w="50vw" h="100vh">
+            <Flex direction="column" w="40vw">
+              <Box>
+                <Heading as="h4">Reset password</Heading>
+              </Box>
+              <Box mt="2">
+                <Text>
+                  Enter the email associated with your account and <br />
+                  we'll send an email with instructions to reset your password.
+                </Text>
+              </Box>
+              <form mt="2" onSubmit={handleSubmit}>
+                <Stack spacing={4} marginBottom="1rem">
+                  <FormControl isRequired isInvalid={hasError("email")}>
+                    <FormLabel htmlFor="email">Email Address</FormLabel>
 
-              <Input
-                focusBorderColor="main.500"
-                type="email"
-                name="email"
-                id="email"
-                onChange={handleChange}
-                value={formState.values.email || ""}
-                placeholder="Enter a valid email address"
-              />
-              <FormErrorMessage>
-                {hasError("email")
-                  ? formState.errors.email && formState.errors.email.message
-                  : null}
-              </FormErrorMessage>
-            </FormControl>
-            <Button
-              type="submit"
-              disabled={!formState.isValid}
-              isLoading={sending}
-              loadingText="Please wait.."
-              colorScheme="core.main"
-            >
-              Send instructions
-            </Button>
-          </Stack>
+                    <Input
+                      focusBorderColor="main.500"
+                      type="email"
+                      name="email"
+                      id="email"
+                      onChange={handleChange}
+                      value={formState.values.email || ""}
+                      placeholder="Enter a valid email address"
+                    />
+                    <FormErrorMessage>
+                      {hasError("email")
+                        ? formState.errors.email &&
+                          formState.errors.email.message
+                        : null}
+                    </FormErrorMessage>
+                  </FormControl>
+                  <Button
+                    type="submit"
+                    disabled={!formState.isValid}
+                    isLoading={sending}
+                    loadingText="Please wait.."
+                    colorScheme="core.main"
+                  >
+                    Send instructions
+                  </Button>
+                </Stack>
+              </form>
+            </Flex>
+          </Center>
         </Box>
       </Flex>
-      
-     </Center> 
-      </Box>
-     </Flex>
-
     </>
   );
 };

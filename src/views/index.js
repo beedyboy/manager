@@ -17,3 +17,4 @@ export { default as Staff } from "./Staff";
 export { default as Ticket } from "./Ticket";
 export { default as TicketAdmin } from "./TicketAdmin";
 export { default as ResetRequest } from "./Auth/RequestRecovery";
+export { default as ResetPassword } from "./Auth/ResetPassword";

@@ -18,6 +18,7 @@ import {
   Profile as ProfileView,
   Report as ReportView,
   ResetRequest as ResetRequestView,
+  ResetPassword as ResetPasswordView,
   SignIn as SignInView,
   Staff as StaffView,
   Ticket as TicketView,
@@ -142,7 +143,13 @@ const Routes = () => {
         component={ResetRequestView}
         exact
         layout={NormalLayout}
-        path="/reset-password"
+        path="/request-reset"
+      />
+      <NormalRoute
+        component={ResetPasswordView}
+        exact
+        layout={NormalLayout}
+        path="/reset-password/:token/:id"
       />
       <NormalRoute
         component={NotFoundView}

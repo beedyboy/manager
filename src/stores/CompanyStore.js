@@ -27,6 +27,7 @@ class CompanyStore {
       }
     });
   };
+
 }
 decorate(CompanyStore, {
   error: observable,

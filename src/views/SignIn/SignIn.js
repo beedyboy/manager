@@ -27,9 +27,9 @@ const schema = {
     message: "A valid email is required",
   },
   password: {
-    min: 6,
+    min: 5,
     isEmpty: false,
-    message: "is required",
+    message: "password is required",
   },
 };
 
@@ -190,7 +190,7 @@ const SignIn = (props) => {
                     </FormGroup>
                   </Col> */}
                         <Col xs="12" lg="12">
-                          <Link to="/reset-password" className="ml-auto mb-0 text-sm">
+                          <Link to="/request-reset" className="ml-auto mb-0 text-sm">
                             Forgot Password?
                           </Link>
                         </Col>
