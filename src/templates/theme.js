@@ -18,15 +18,13 @@ const theme = extendTheme({
       },
     },
   },
-  colors: {
-    brand: {
+  colors: { 
       main: '#F70000',
       mainAccent: '#9B8F8F',
       brand: '#6E7768',
       black: '#273444',
       white: "#ffffff",
-      offWhite: "#E9EBEE"
-    },
+      offWhite: "#E9EBEE",
     core: {
 			main: {
 				50: "#fffff0",
